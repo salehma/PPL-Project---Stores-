@@ -3967,6 +3967,7 @@ input[type="button"].btn-block {
   padding-bottom: 0.5rem;
   padding-left: 1rem;
   font-size: 1.25rem;
+  background-color: #1e7e34;
 }
 
 .custom-file {

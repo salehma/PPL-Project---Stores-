@@ -1,0 +1,40 @@
+{%  load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+        .button {
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+
+        .button1 {background-color: mediumseagreen;} /* Green */
+        .button2 {background-color: #008CBA;} /* Blue */
+    </style>
+    <link rel="stylesheet" href="{%static  'css/check_lists.css'%}"/>
+      <link rel="stylesheet" href="{%static  'css/main.css'%}"/>
+  </head>
+ <body>
+<form name = "form" action = "{% url "show_results" %}"
+         method = "POST" >{% csrf_token %}
+    <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
+      <h2 id="bulgy-radios-label">Select an Item</h2>
+        {%for item in list%}
+            <label>
+                <input type="radio" name="options" value="{{item}}" />
+                <span class="radio"></span>
+                <span class="label">{{item}}</span>
+             </label>
+        {% endfor %}
+    <button class="button button1" type = "submit">Choose!</button>
+    </div>
+</form>
+ </body>
+</html>

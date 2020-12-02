@@ -428,7 +428,6 @@ template {
 html {
   height: 100%;
 }
-
 fieldset {
   margin: 0;
   padding: 0;
@@ -468,6 +467,13 @@ legend {
   padding: 15px;
 }
 
+.s02 {
+background-image: url('images/Search_001.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
 .s01 form {
   width: 100%;
   max-width: 1290px;
@@ -480,9 +486,24 @@ legend {
   margin-bottom: 60px;
 }
 
+.s01 form legend1 {
+  font-size: 20px;
+  line-height: 1;
+  color: #ffffff;
+  margin-bottom: 60px;
+}
+
+.s01 form legend2 {
+  font-size: 20px;
+  line-height: 1;
+  color: #000; /* Fallback for older browsers */
+    color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 60px;
+}
+
 .s01 form .inner-form {
   background: rgba(0, 0, 0, 0.5);
-  padding: 50px 47px;
+  padding: 150px 150px;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
@@ -493,8 +514,14 @@ legend {
 }
 
 .s01 form .inner-form .input-field {
-  margin-right: 30px;
+  margin-right: 20px;
   height: 68px;
+}
+
+.s01 form .inner-form .input-field1 {
+  margin-right: 20px;
+  height: 38px;
+  margin-bottom: 40px;
 }
 
 .s01 form .inner-form .input-field input {
@@ -513,6 +540,8 @@ legend {
   font-size: 20px;
 }
 
+
+
 .s01 form .inner-form .input-field input:-moz-placeholder {
   color: #9a9a9a;
   font-size: 20px;
@@ -528,9 +557,45 @@ legend {
   outline: 0;
 }
 
+.s01 form .inner-form .input-field1 input {
+  height: 100%;
+  background: #fff;
+  border-radius: .5px;
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 10px 32px;
+  font-size: 20px;
+}
+
+.s01 form .inner-form .input-field1 input.placeholder {
+  color: #9a9a9a;
+  font-size: 20px;
+}
+
+
+
+.s01 form .inner-form .input-field1 input:-moz-placeholder {
+  color: #9a9a9a;
+  font-size: 20px;
+}
+
+.s01 form .inner-form .input-field1 input::-webkit-input-placeholder {
+  color: #9a9a9a;
+  font-size: 20px;
+}
+
+.s01 form .inner-form .input-field1 input:hover, .s01 form .inner-form .input-field input:focus {
+  box-shadow: none;
+  outline: 0;
+}
+
+
+
+
 .s01 form .inner-form .input-field.first-wrap {
-  -ms-flex-positive: 1;
-      flex-grow: 1;
+  width: 32.77%;
+  min-width: 180px;
 }
 
 .s01 form .inner-form .input-field.second-wrap {
@@ -543,10 +608,27 @@ legend {
   margin-right: 0;
 }
 
+.s01 form .inner-form .input-field1.fourth-wrap {
+  width: 20.77%;
+  min-width: 100px;
+}
+
 .s01 form .inner-form .input-field.third-wrap .btn-search {
   height: 100%;
   width: 100%;
-  background: #4272d7;
+  background: #1e7e34;
+  white-space: nowrap;
+  border-radius: .5px;
+  font-size: 20px;
+  color: #fff;
+  transition: all .2s ease-out, color .2s ease-out;
+  border: 0;
+  cursor: pointer;
+}
+.s01 form .inner-form .input-field.fourth-wrap .btn-select {
+  height: 100%;
+  width: 100%;
+  background: #0c5460;
   white-space: nowrap;
   border-radius: .5px;
   font-size: 20px;
@@ -556,9 +638,14 @@ legend {
   cursor: pointer;
 }
 
+
 .s01 form .inner-form .input-field.third-wrap .btn-search:hover {
   background: #2d62d3;
 }
+.s01 form .inner-form .input-field1.fourth-wrap .btn-select:hover {
+  background: #2d62d3;
+}
+
 
 @media screen and (max-width: 992px) {
   .s01 form legend {
@@ -572,6 +659,7 @@ legend {
   .s01 form .inner-form .input-field {
     height: 50px;
   }
+
 }
 
 @media screen and (max-width: 767px) {
@@ -603,6 +691,12 @@ legend {
     width: calc(50% - 10px);
   }
   .s01 form .inner-form .input-field.third-wrap .btn-search {
+    font-size: 16px;
+  }
+  .s01 form .inner-form .input-field1.fourth-wrap {
+    width: calc(50% - 10px);
+  }
+  .s01 form .inner-form .input-field.fourth-wrap .btn-select {
     font-size: 16px;
   }
 }

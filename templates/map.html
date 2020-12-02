@@ -1,0 +1,42 @@
+{%  load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{%static  'css/list.css'%}"/>
+    <style>
+
+        article {
+          float: right;
+          width: 50%;
+          background-color: #f1f1f1;
+            margin-right: 10%;
+        }
+        section:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        nav {
+          float: left;
+          width: 30%;
+        }
+    </style>
+</head>
+<body>
+
+  <div><h1>Here is the stores that have the Item:</h1></div>
+<section>
+<nav>
+    <ol class="gradient-list">
+    {%for item in list%}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ol>
+</nav>
+   <article>{{ my_map|safe }}</article>
+</section>
+
+</body>
+</html>

@@ -7,25 +7,48 @@
     <meta name="author" content="colorlib.com">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link rel="stylesheet" href="{%static  'css/main.css'%}"/>
+      <link rel="stylesheet" href="{%static  'css/bootstrap.css'%}"/>
   </head>
   <body>
     <div class="s01">
-      <form name = "form" action = "{% url "search_results" %}"
+      <form name = "form" action = "{% url "show_items" %}"
          method = "POST" >{% csrf_token %}
         <fieldset>
           <legend>Search the Item you Need</legend>
         </fieldset>
         <div class="inner-form">
+
           <div class="input-field first-wrap">
-            <input name="search" type="text" placeholder="What are you looking for?" />
+              <fieldset>
+          <legend1>What are you looking for?</legend1>
+        </fieldset>
+            <input name="search" type="text" placeholder="Item Name" />
           </div>
           <div class="input-field second-wrap">
+              <fieldset>
+          <legend1>Where Are You Now?</legend1>
+        </fieldset>
             <input name="location" type="text" placeholder="location" />
           </div>
+
+            <div class="input-field1 fourth-wrap">
+                <fieldset>
+          <legend1>Priorities</legend1>
+        </fieldset>
+            <input name="price" type="text" placeholder="Price" />
+                <input name="distance" type="text" placeholder="Distance" />
+                <input name="rate" type="text" placeholder="Rate" />
+          </div>
           <div class="input-field third-wrap">
-            <button class="btn btn-search" type = "submit" >Search</button>
+              <fieldset>
+          <legend2> //</legend2>
+        </fieldset>
+            <button class="btn-search" type = "submit" >Search</button>
           </div>
         </div>
+          <fieldset>
+          <legend1>*Priorities sum should be 100</legend1>
+        </fieldset>
       </form>
     </div>
   </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
