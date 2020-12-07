@@ -10,6 +10,11 @@
       <link rel="stylesheet" href="{%static  'css/bootstrap.css'%}"/>
   </head>
   <body>
+  {% if message %}
+    <script>
+        alert('{{ message }}');
+    </script>
+  {% endif %}
     <div class="s01">
       <form name = "form" action = "{% url "show_items" %}"
          method = "POST" >{% csrf_token %}
@@ -22,7 +27,7 @@
               <fieldset>
           <legend1>What are you looking for?</legend1>
         </fieldset>
-            <input name="search" type="text" placeholder="Item Name" />
+            <input name="item" type="text" placeholder="Item Name" />
           </div>
           <div class="input-field second-wrap">
               <fieldset>

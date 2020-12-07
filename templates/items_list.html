@@ -26,9 +26,9 @@
          method = "POST" >{% csrf_token %}
     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
       <h2 id="bulgy-radios-label">Select an Item</h2>
-        {%for item in list%}
+        {%for index, item in list%}
             <label>
-                <input type="radio" name="options" value="{{item}}" />
+                <input type="radio" name="options" value="{{index}}" />
                 <span class="radio"></span>
                 <span class="label">{{item}}</span>
              </label>
