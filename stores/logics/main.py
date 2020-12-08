@@ -3,7 +3,7 @@ from stores.logics.api import Api
 _api = Api()
 search_string = 'iphone x'
 zap_res = _api.search_for(search_string)
-# ksp_res = _api.search_for_ksp(search_string)
+ksp_res = _api.search_for_ksp(search_string)
 
 print(zap_res)
 

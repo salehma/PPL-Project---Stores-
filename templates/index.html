@@ -16,7 +16,7 @@
     </script>
   {% endif %}
     <div class="s01">
-      <form name = "form" action = "{% url "show_items" %}"
+      <form name = "form" action = "{% url "show_items_of_zap" %}"
          method = "POST" >{% csrf_token %}
         <fieldset>
           <legend>Search the Item you Need</legend>

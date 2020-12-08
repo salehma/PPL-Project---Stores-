@@ -22,15 +22,18 @@
       <link rel="stylesheet" href="{%static  'css/main.css'%}"/>
   </head>
  <body>
-<form name = "form" action = "{% url "show_results" %}"
+<form name = "form" action = "{% url "show_items_of_ksp" %}"
          method = "POST" >{% csrf_token %}
     <div class="bulgy-radios" role="radiogroup" aria-labelledby="bulgy-radios-label">
-      <h2 id="bulgy-radios-label">Select an Item</h2>
-        {%for index, item in list%}
+      <h2 id="bulgy-radios-label">Select an Item from ZAP</h2>
+        {%for index, item, img in list%}
             <label>
                 <input type="radio" name="options" value="{{index}}" />
                 <span class="radio"></span>
-                <span class="label">{{item}}</span>
+                <span class="label">
+                    <img src = {{img}}  height="100" alt="">
+                    {{item}}
+                    </span>
              </label>
         {% endfor %}
     <button class="button button1" type = "submit">Choose!</button>

@@ -28,9 +28,11 @@ price_pr = ''
 distance_pr = ''
 rate_pr = ''
 zap_search = []
+ksp_res = []
+zap_idx = 0
 
 
-def show_items(request):
+def show_items_of_zap(request):
     global item
     global address
     global price_pr
@@ -49,16 +51,28 @@ def show_items(request):
             return render(request, 'index.html', {'message': 'priorities sum should be 100'})
         print(item, '  ', address, ' ', price_pr, ' ', distance_pr, ' ', rate_pr)
         zap_search = api.Api().search_for(item)
-        items = [(zap_search.index(i), i.name) for i in zap_search]
+        items = [(zap_search.index(i), i.name, i.image) for i in zap_search]
+    items.append((len(zap_search), 'None of The Above', 'templates/pure-white-background.jpg'))
+    return render(request, "items_list_zap.html", {"list": items})
 
-    return render(request, "items_list.html", {"list": items})
+
+def show_items_of_ksp(request):
+    global zap_idx
+    global ksp_res
+    items = []
+    if request.method == 'POST':
+        zap_idx = request.POST.get('options')
+        ksp_res = api.Api().search_for_ksp(item)
+        items = [(ksp_res.index(i), i.name, i.image) for i in ksp_res if i.name != 'Not Available']
+    items.append((len(ksp_res), 'None of The Above', 'templates/pure-white-background.jpg'))
+    return render(request, "items_list_ksp.html", {"list": items})
 
 
 def show_results(request):
     if request.method == 'POST':
-        idx = request.POST.get('options')
+        ksp_idx = request.POST.get('options')
         loc = get_lat_long_from_address(address)
-        results = get_results(idx, loc['lat'], loc['lng'])
+        results = get_results(ksp_idx, loc['lat'], loc['lng'])
         # creation of map comes here + business logic
         m = folium.Map([loc['lat'], loc['lng']], zoom_start=10)
         folium.CircleMarker((float(loc['lat']), float(loc['lng'])), popup='your location').add_to(m)
@@ -77,7 +91,8 @@ def show_results(request):
 
 
 def get_results(idx, user_lat, user_lang):
-    stores = zap_search[int(idx)].get_stores() if int(idx) != len(zap_search) else []
+    stores = zap_search[int(zap_idx)].get_stores() if int(zap_idx) != len(zap_search) else []
+    stores += [ksp_res[int(idx)]] if int(idx) != len(ksp_res) else []
     branches = []
     for store in stores:
         branches += store.set_prices(store.get_available_branches())
