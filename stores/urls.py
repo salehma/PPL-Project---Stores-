@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-
+# the urls of the websites maps to their functions
 urlpatterns = [
     path('search/zap/', views.show_items_of_zap, name='show_items_of_zap'),
     path('search/ksp/', views.show_items_of_ksp, name='show_items_of_ksp'),
