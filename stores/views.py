@@ -131,6 +131,6 @@ def get_results(idx, user_lat, user_lang):
 # using google apis we calc the current location using the address
 def get_lat_long_from_address(addr):
     response = requests.get(
-        'https://maps.googleapis.com/maps/api/geocode/json?address=' + addr + '&key=AIzaSyCLs_mIGVefgGgw8Ea3BFgQE9LtxRZux-4')
+        'https://maps.googleapis.com/maps/api/geocode/json?address=' + addr + '&key=*****')   #add a relevant key
     resp_json_payload = response.json()
     return resp_json_payload['results'][0]['geometry']['location']
